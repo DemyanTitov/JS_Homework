@@ -24,6 +24,8 @@ console.log(compareArrs(arr1, arr2));
 let firstNum = +prompt("Введите первое число диапазона");
 let lastNum = +prompt("Введите последнее число диапазона");
 let step = +prompt("Введите шаг");
+let arr = [];
+let count = 1;
 
 while (firstNum > lastNum || firstNum == lastNum) {
   firstNum = prompt("Первое число должно быть меньше последнего");
@@ -36,16 +38,38 @@ if (step == null || step == "") {
 }
 
 console.log(firstNum, lastNum, step);
+function showArr() {
 
-let arr = [];
+
+
 arr.push(firstNum);
 for (var i = firstNum + 1; i <= lastNum; i++) {
-        arr.push(i);
+        count++
+        if (count%step != 0 || step == 1) {
+          arr.push(i);
+        }
+};
 }
+showArr();
 console.log(arr);
-// function range(firstNum, lastNum, step) {
-//   let arr = [];
-// for (var i = 0; i < array.length; i++) {
-//   arr.push(firstNum)
-// }
-// }
+
+// 3. Построить объект студент со свойствами:
+// Имя, Фамилия, Возраст, Интересы (в виде массива), Место обучения.
+// Написать отдельную функцию, которой передается объект студент,
+// а она выводит его содержимое.
+
+let objStudent = {
+  firstName: "Eric",
+  lastName: "Cartman",
+  age: 12,
+  interests: ["play games", "eat", "jokes"],
+  placeOfStuding: "School of South Park",
+}
+
+function objProp(obj) {
+  for (let prop in obj) {
+    console.log(`${prop}: ${obj[prop]}`);
+  }
+}
+
+objProp(objStudent);
