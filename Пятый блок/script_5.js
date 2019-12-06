@@ -21,28 +21,28 @@ console.log(compareArrs(arr1, arr2));
 // Функция возвращает массив, который содержит все числа из него, включая начальное и конечное.
 // Например, вызов функции range(1, 10, 2) должен будет вернуть [1, 3, 5, 7, 9].
 
-let firstNum = +prompt("Введите первое число диапазона");
-let lastNum = +prompt("Введите последнее число диапазона");
-let step = +prompt("Введите шаг");
-
-while (firstNum > lastNum || firstNum == lastNum) {
-  firstNum = prompt("Первое число должно быть меньше последнего");
-  lastNum = prompt("Последнее число должно быть больше первого");
-}
-if (step == null || step == "") {
-  step = 1;
-} else if (step <= 0) {
-  step = +prompt("Шаг должен быть больше или равен 1");
-}
-
-console.log(firstNum, lastNum, step);
-
-let arr = [];
-arr.push(firstNum);
-for (var i = firstNum + 1; i <= lastNum; i++) {
-        arr.push(i);
-}
-console.log(arr);
+// let firstNum = +prompt("Введите первое число диапазона");
+// let lastNum = +prompt("Введите последнее число диапазона");
+// let step = +prompt("Введите шаг");
+//
+// while (firstNum > lastNum || firstNum == lastNum) {
+//   firstNum = prompt("Первое число должно быть меньше последнего");
+//   lastNum = prompt("Последнее число должно быть больше первого");
+// }
+// if (step == null || step == "") {
+//   step = 1;
+// } else if (step <= 0) {
+//   step = +prompt("Шаг должен быть больше или равен 1");
+// }
+//
+// console.log(firstNum, lastNum, step);
+//
+// let arr = [];
+// arr.push(firstNum);
+// for (var i = firstNum + 1; i <= lastNum; i++) {
+//         arr.push(i);
+// }
+// console.log(arr);
 // function range(firstNum, lastNum, step) {
 //   let arr = [];
 // for (var i = 0; i < array.length; i++) {
