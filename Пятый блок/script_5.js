@@ -24,21 +24,22 @@ console.log(compareArrs(arr1, arr2));
 let firstNum = +prompt("Введите первое число диапазона");
 let lastNum = +prompt("Введите последнее число диапазона");
 let step = +prompt("Введите шаг");
-let arr = [];
-let count = 1;
-
-while (firstNum > lastNum || firstNum == lastNum) {
-  firstNum = prompt("Первое число должно быть меньше последнего");
-  lastNum = prompt("Последнее число должно быть больше первого");
-}
-if (step == null || step == "") {
-  step = 1;
-} else if (step <= 0) {
-  step = +prompt("Шаг должен быть больше или равен 1");
-}
 
 console.log(firstNum, lastNum, step);
-function showArr() {
+
+function range(firstNum, lastNum, step) {
+  let arr = [];
+  let count = 1;
+
+  while (firstNum > lastNum || firstNum == lastNum) {
+    firstNum = prompt("Первое число должно быть меньше последнего");
+    lastNum = prompt("Последнее число должно быть больше первого");
+  }
+  if (step == null || step == "") {
+    step = 1;
+  } else if (step <= 0) {
+    step = +prompt("Шаг должен быть больше или равен 1");
+  }
 arr.push(firstNum);
 for (var i = firstNum + 1; i <= lastNum; i++) {
         count++
@@ -46,9 +47,10 @@ for (var i = firstNum + 1; i <= lastNum; i++) {
           arr.push(i);
         }
 };
+return arr;
 }
-showArr();
-console.log(arr);
+
+console.log(range(firstNum, lastNum, step));
 
 // 3. Построить объект студент со свойствами:
 // Имя, Фамилия, Возраст, Интересы (в виде массива), Место обучения.
