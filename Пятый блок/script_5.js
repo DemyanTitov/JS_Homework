@@ -25,21 +25,22 @@ let firstNum = +prompt("Введите первое число диапазон�
 let lastNum = +prompt("Введите последнее число диапазона");
 let step = +prompt("Введите шаг");
 
+while (firstNum > lastNum || firstNum == lastNum) {
+  firstNum = +prompt("Первое число должно быть меньше последнего");
+  lastNum = +prompt("Последнее число должно быть больше первого");
+}
+if (step == null || step == "") {
+  step = 1;
+} else if (step <= 0) {
+  step = +prompt("Шаг должен быть больше или равен 1");
+}
+
 console.log(firstNum, lastNum, step);
 
 function range(firstNum, lastNum, step) {
   let arr = [];
   let count = 1;
 
-  while (firstNum > lastNum || firstNum == lastNum) {
-    firstNum = prompt("Первое число должно быть меньше последнего");
-    lastNum = prompt("Последнее число должно быть больше первого");
-  }
-  if (step == null || step == "") {
-    step = 1;
-  } else if (step <= 0) {
-    step = +prompt("Шаг должен быть больше или равен 1");
-  }
 arr.push(firstNum);
 for (var i = firstNum + 1; i <= lastNum; i++) {
         count++
