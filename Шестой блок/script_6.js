@@ -28,8 +28,16 @@ console.log(foo(a, 'count', 10));
 // числа из этого промежутка. Решите задачу через замыкания - в замыкании должен
 // хранится массив чисел, которые уже были сгенерированы функцией.
 
-function randomNum(min, max) {
-  let num = Math.floor(Math.random() * (max - min + 1) + min);
-  return num;
+function randomNum() {
+let arr = [];
+
+    return function() {
+      let num = Math.floor(Math.random() * 100);
+      return arr;
+    };
 }
-console.log(randomNum(1,100));
+let t = randomNum()
+console.log(t());
+console.log(t());
+console.log(t());
+console.log(t());
