@@ -28,16 +28,32 @@ console.log(foo(a, 'count', 10));
 // числа из этого промежутка. Решите задачу через замыкания - в замыкании должен
 // хранится массив чисел, которые уже были сгенерированы функцией.
 
-function randomNum() {
+function randomNum(min, max) {
 let arr = [];
 
     return function() {
-      let num = Math.floor(Math.random() * 100);
+      function getNum() {
+        let num = Math.floor(Math.random() * (max - min + 1)) + min
+        return num;
+      } ;
+      let r = getNum();
+      console.log(r);
+      for (var i = 0; i < max; i++) {
+        getNum();
+        arr.length = i + 1;
+        arr[i] = arr.push(r);
+      }
       return arr;
     };
 }
-let t = randomNum()
+let t = randomNum(1,10);
 console.log(t());
 console.log(t());
 console.log(t());
 console.log(t());
+
+
+// 3. Построить объект студент:
+// - свойства: Имя, Фамилия, Возраст, Интересы (в виде массива), Место обучения.
+// - метод объекта выводящий в консоль биографическую справку в виде, например:
+// «Иван Петров. 21 год. Интересы: программирование, музыка, аниме. Учится в ИТМО.
