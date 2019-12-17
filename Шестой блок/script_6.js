@@ -31,26 +31,23 @@ console.log(foo(a, 'count', 10));
 function randomNum(min, max) {
 let arr = [];
 
-    return function() {
-      function getNum() {
-        let num = Math.floor(Math.random() * (max - min + 1)) + min
-        return num;
-      } ;
-      let r = getNum();
-      console.log(r);
-      for (var i = 0; i < max; i++) {
-        getNum();
-        arr.length = i + 1;
-        arr[i] = arr.push(r);
-      }
-      return arr;
-    };
+    return function getNewRandom() {
+        let num = Math.floor(Math.random() * (max - min + 1)) + min;
+        if (arr.indexOf(num) < 0) {
+          arr.push(num);
+          console.log(arr);
+          return num;
+        } else if (arr.length !== max) {
+          return getNewRandom();
+     } return console.log('Массив полон, генерация уникального числа невозможна');
+   }
 }
-let t = randomNum(1,10);
+let t = randomNum(1,100);
 console.log(t());
 console.log(t());
 console.log(t());
 console.log(t());
+
 
 
 // 3. Построить объект студент:
