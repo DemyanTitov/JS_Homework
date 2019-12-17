@@ -29,7 +29,7 @@ console.log(str3);
 // - содержит обязательно один из неалфавитных символов (например, !, $, #, %).
 
 let pass = prompt("Введите пароль:");
-let regExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]){3,}(?=.*[^\w\s]).{9,}/g;
+let regExp = /^(?=.*[a-z])(?=.*[A-Z])(?=(.*[0-9]){3,})(?=.*[^\w\s]).{9,}/g;
 let result = regExp.test(pass);
 console.log(result);
 if (pass.length < 9) {
