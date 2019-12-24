@@ -3,19 +3,19 @@
 // Время выводить в формате чч:мм:cc, при этом
 // часы, минуты и секунды отобразить разными цветами.
 
-let div = document.createElement("div");
+let divTime = document.createElement("div");
 let hSpan = document.createElement('span');
 let mSpan = document.createElement('span');
 let sSpan = document.createElement('span');
 
-div.setAttribute("id", "time");
-div.setAttribute("onload", getTime());
+divTime.setAttribute("id", "time");
+divTime.setAttribute("onload", getTime());
 hSpan.style.color = "red";
 mSpan.style.color = "green";
 sSpan.style.color = "blue";
 
-document.body.prepend(div);
-div.append(hSpan,":",mSpan,":",sSpan);
+document.body.prepend(divTime);
+divTime.append(hSpan,":",mSpan,":",sSpan);
 
 function getTime() {
   let now = new Date();
@@ -44,16 +44,49 @@ function getTime() {
 // необходимые html элементы, стили, и содержание
 // для отображения всей информации о товарах.
 
+let divProducts = document.createElement("div");
+divProducts.setAttribute("id", "products");
+divTime.after(divProducts);
+
 function Product(img_src, article, description) {
   this.img_src = img_src;
   this.article = article;
   this.description = description;
+  this.pushToArr = function() {
+    return arrProduct.push(this);
+  };
 };
 
-let obj1 = new Product("https://sun9-26.userapi.com/c851028/v851028946/1e7c65/VMAMwWZtui0.jpg", "Bla-bla", "Ho-ho-ho");
-console.log(obj1);
-let img = document.createElement("img");
-div.after(img);
-img.setAttribute("src", obj1.img_src);
-// img.setAttribute("width",'300');
-img.setAttribute("height",'300');
+function addToHTML(arr) {
+  for (var i = 0; i < arr.length; i++) {
+    let div = document.createElement("div");
+    divProducts.append(div);
+
+    let img = document.createElement("img");
+    div.append(img);
+    img.setAttribute("src", arr[i].img_src);
+    img.setAttribute("width", "300");
+
+    let h3 = document.createElement("h3");
+    div.append(h3)
+    h3.innerHTML = arr[i].article;
+
+    let p = document.createElement("p");
+    div.append(p)
+    p.innerHTML = arr[i].description;
+  }
+
+};
+
+let arrProduct=[];
+
+let img_src1 = "https://cdn1.ozone.ru/s3/multimedia-e/c1200/6005708318.jpg";
+let art1 = "Дисковый телефон.";
+let descr1 = "Этот прибор времён древних богов доставит Вам не мало радости, если Вы будете лицезреть, как нео-люди пытаются им воспользоваться.";
+let obj1 = new Product(img_src1, art1, descr1);
+
+obj1.pushToArr();
+obj1.pushToArr();
+obj1.pushToArr();
+
+addToHTML(arrProduct);
