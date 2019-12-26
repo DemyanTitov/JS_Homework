@@ -97,3 +97,24 @@ obj1.pushToArr();
 obj1.pushToArr();
 
 addToHTML(arrProduct);
+
+// 3. Создать светофор (красный, желтый,
+// зелёный). Переключать цвет у светофора
+// через каждые 2 сек сверху вниз и снизу вверх.
+
+let divLights = document.createElement("div");
+divLights.setAttribute("id", "lights");
+divProducts.after(divLights);
+divLights.style.cssText = "width: 70px; height: 240px; background: #222; border-radius: 8px; margin: auto; padding: 15px;"
+
+divRed = document.createElement("div");
+divLights.append(divRed)
+divRed.style.cssText = "display: inline-block; border-radius: 100%; width: 70px; height: 70px; margin-bottom: 8px; opacity: 0.2; transition: opacity 0.2s; background: red;"
+
+divYellow = document.createElement("div");
+divLights.append(divYellow)
+divYellow.style.cssText = "display: inline-block; border-radius: 100%; width: 70px; height: 70px; margin-bottom: 8px; opacity: 0.2; transition: opacity 0.2s; background: yellow;"
+
+divGreen = document.createElement("div");
+divLights.append(divGreen)
+divGreen.style.cssText = "display: inline-block; border-radius: 100%; width: 70px; height: 70px; margin-bottom: 8px; opacity: 0.2; transition: opacity 0.2s; background: green;"
