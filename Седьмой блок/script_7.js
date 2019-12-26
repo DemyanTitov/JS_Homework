@@ -46,6 +46,7 @@ function getTime() {
 
 let divProducts = document.createElement("div");
 divProducts.setAttribute("id", "products");
+divProducts.style.cssText = "display: grid; grid-template-columns: 1fr 1fr 1fr 1fr";
 divTime.after(divProducts);
 
 function Product(img_src, article, description) {
@@ -61,19 +62,22 @@ function addToHTML(arr) {
   for (var i = 0; i < arr.length; i++) {
     let div = document.createElement("div");
     divProducts.append(div);
+    div.style.cssText = "margin: 5px; border: solid black 1px";
 
     let img = document.createElement("img");
     div.append(img);
     img.setAttribute("src", arr[i].img_src);
-    img.setAttribute("width", "300");
+    img.setAttribute("width", "100%");
 
     let h3 = document.createElement("h3");
     div.append(h3)
     h3.innerHTML = arr[i].article;
+    h3.style.cssText = "text-align: center; margin: 5px";
 
     let p = document.createElement("p");
     div.append(p)
     p.innerHTML = arr[i].description;
+    p.style.cssText = "text-indent: 1.5em; margin: 10px; text-align: justify"
   }
 
 };
@@ -85,6 +89,9 @@ let art1 = "Дисковый телефон.";
 let descr1 = "Этот прибор времён древних богов доставит Вам не мало радости, если Вы будете лицезреть, как нео-люди пытаются им воспользоваться.";
 let obj1 = new Product(img_src1, art1, descr1);
 
+obj1.pushToArr();
+obj1.pushToArr();
+obj1.pushToArr();
 obj1.pushToArr();
 obj1.pushToArr();
 obj1.pushToArr();
