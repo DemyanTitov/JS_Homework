@@ -108,13 +108,21 @@ divProducts.after(divLights);
 divLights.style.cssText = "width: 70px; height: 240px; background: #222; border-radius: 8px; margin: auto; padding: 15px;"
 
 divRed = document.createElement("div");
+divRed.setAttribute("class", "red")
 divLights.append(divRed)
-divRed.style.cssText = "display: inline-block; border-radius: 100%; width: 70px; height: 70px; margin-bottom: 8px; opacity: 0.2; transition: opacity 0.2s; background: red;"
+divRed.style.cssText = "display: inline-block; border-radius: 100%; width: 70px; height: 70px; margin-bottom: 8px; opacity: 0.2; background: red;"
 
 divYellow = document.createElement("div");
+divYellow.setAttribute("class", "yellow")
 divLights.append(divYellow)
-divYellow.style.cssText = "display: inline-block; border-radius: 100%; width: 70px; height: 70px; margin-bottom: 8px; opacity: 0.2; transition: opacity 0.2s; background: yellow;"
+divYellow.style.cssText = "display: inline-block; border-radius: 100%; width: 70px; height: 70px; margin-bottom: 8px; opacity: 0.2; background: yellow;"
 
 divGreen = document.createElement("div");
+divGreen.setAttribute("class", "green")
 divLights.append(divGreen)
-divGreen.style.cssText = "display: inline-block; border-radius: 100%; width: 70px; height: 70px; margin-bottom: 8px; opacity: 0.2; transition: opacity 0.2s; background: green;"
+divGreen.style.cssText = "display: inline-block; border-radius: 100%; width: 70px; height: 70px; margin-bottom: 8px; opacity: 0.2; background: green;"
+
+
+// function changeLight() {
+//     divRed.style.opacity = "";
+// }
