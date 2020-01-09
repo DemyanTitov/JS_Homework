@@ -110,7 +110,7 @@ divLights.style.cssText = "width: 70px; height: 240px; background: #222; border-
 divRed = document.createElement("div");
 divRed.setAttribute("class", "red")
 divLights.append(divRed)
-divRed.style.cssText = "display: inline-block; border-radius: 100%; width: 70px; height: 70px; margin-bottom: 8px; opacity: 0.2; background: red;"
+divRed.style.cssText = "display: inline-block; border-radius: 100%; width: 70px; height: 70px; margin-bottom: 8px; background: red;"
 
 divYellow = document.createElement("div");
 divYellow.setAttribute("class", "yellow")
@@ -123,6 +123,25 @@ divLights.append(divGreen)
 divGreen.style.cssText = "display: inline-block; border-radius: 100%; width: 70px; height: 70px; margin-bottom: 8px; opacity: 0.2; background: green;"
 
 
-// function changeLight() {
-//     divRed.style.opacity = "";
-// }
+setInterval(function changeLight() {
+      setTimeout(function () {
+      divRed.style.opacity = 0.2;
+      divYellow.style.opacity = "";
+      divGreen.style.opacity = 0.2;
+    }, 2000);
+      setTimeout(function () {
+      divRed.style.opacity = 0.2;
+      divYellow.style.opacity = 0.2;
+      divGreen.style.opacity = "";
+    }, 4000);
+      setTimeout(function () {
+      divRed.style.opacity = 0.2;
+      divYellow.style.opacity = "";
+      divGreen.style.opacity = 0.2;
+    }, 6000);
+      setTimeout(function () {
+      divRed.style.opacity = "";
+      divYellow.style.opacity = 0.2;
+      divGreen.style.opacity = 0.2;
+    }, 8000);
+}, 8000)
