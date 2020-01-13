@@ -28,3 +28,25 @@ let btn = document.getElementById("btn");
 btn.onclick = function () {
   btn.innerText++;
 }
+
+// 3. Реализовать возможность добавления комментариев.
+// Комментарий вводится в textarea.
+// Комментарий добавляется по нажатию на кнопку Комментировать.
+// При добавлении комменария отображаются: аватар автора (пока у всех комментарие одинаковый),
+// имя автора (пока у всех комментарие одинаковое), дата добавления комментария (текущая дата),
+// текст комментария (тот, что был введен в textarea).
+
+class User {
+  constructor (img, name){
+  this.avatar = img;
+  this.name = name;
+  this.text = document.getElementById("textarea").value;
+  }
+}
+
+let commentBtn = document.getElementById("commentBtn");
+commentBtn.onclick = function () {
+  let comments = document.getElementById("comments");
+  let comment = document.createElement("div");
+  comments.append(comment);
+}
