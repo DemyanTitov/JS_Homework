@@ -35,18 +35,20 @@ btn.onclick = function () {
 // При добавлении комменария отображаются: аватар автора (пока у всех комментарие одинаковый),
 // имя автора (пока у всех комментарие одинаковое), дата добавления комментария (текущая дата),
 // текст комментария (тот, что был введен в textarea).
-
-class User {
-  constructor (img, name){
-  this.avatar = img;
-  this.name = name;
-  this.text = document.getElementById("textarea").value;
-  }
-}
-
+document.getElementById("textarea").value;
 let commentBtn = document.getElementById("commentBtn");
 commentBtn.onclick = function () {
   let comments = document.getElementById("comments");
   let comment = document.createElement("div");
+  comment.classList.add("comment");
   comments.append(comment);
+
+  let img = document.createElement("img");
+  let divImg = document.createElement("div");
+  divImg.append(img)
+  comment.append(divImg);
+  img.setAttribute("src", "./img/1.png");
+  // img.setAttribute("width", "100%");
+  divImg.classList.add("divImg");
+
 }
