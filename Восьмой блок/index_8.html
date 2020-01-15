@@ -10,17 +10,38 @@
         border: solid black 1px;
         margin: 5px;
       }
+      #comments{
+        width: 600px;
+      }
       .comment{
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: 100px auto;
+        grid-template-rows: 100px auto;
         border: solid black 1px;
         margin: 5px;
 
       }
-      .divImg{
+      .img{
+        grid-area: "img";
+        height: 100px;
+        width: 100px;
         grid-column: 1 / 2;
-        grid-row: 1 / 4;
+        grid-row: 1 / 2;
+      }
+      .name{
+        grid-area: "name";
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+      }
+      .text{
+        grid-area: "text";
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+      }
+      .date{
+        grid-area: "date";
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
       }
     </style>
   </head>

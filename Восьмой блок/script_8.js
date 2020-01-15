@@ -35,20 +35,63 @@ btn.onclick = function () {
 // При добавлении комменария отображаются: аватар автора (пока у всех комментарие одинаковый),
 // имя автора (пока у всех комментарие одинаковое), дата добавления комментария (текущая дата),
 // текст комментария (тот, что был введен в textarea).
-document.getElementById("textarea").value;
+
 let commentBtn = document.getElementById("commentBtn");
-commentBtn.onclick = function () {
+commentBtn.onclick = function sendComment () {
   let comments = document.getElementById("comments");
   let comment = document.createElement("div");
   comment.classList.add("comment");
   comments.append(comment);
 
   let img = document.createElement("img");
-  let divImg = document.createElement("div");
-  divImg.append(img)
-  comment.append(divImg);
+  // let divImg = document.createElement("div");
+  // divImg.append(img)
+  comment.append(img);
   img.setAttribute("src", "./img/1.png");
   // img.setAttribute("width", "100%");
-  divImg.classList.add("divImg");
+  img.classList.add("img");
 
+  let name = document.createElement("h3");
+  comment.append(name);
+  name.innerHTML = "Иван Иванович";
+  name.classList.add("name");
+
+  let text = document.createElement("p");
+  comment.append(text);
+  text.innerHTML = document.getElementById("textarea").value;
+  text.classList.add("text");
+
+  let date = document.createElement("div");
+  let hSpan = document.createElement('span');
+  let mSpan = document.createElement('span');
+  let sSpan = document.createElement('span');
+  comment.append(date);
+  date.append(hSpan,":",mSpan,":",sSpan);
+  date.setAttribute("onload", getTime());
+  function getTime() {
+    let now = new Date();
+    let h = now.getHours(),
+        m = now.getMinutes(),
+        s = now.getSeconds();
+    h=checkTime(h);
+    m=checkTime(m);
+    s=checkTime(s);
+    function checkTime(i){
+      if (i<10){
+        i="0" + i;
+  }
+      return i;
+  };
+    hSpan.innerHTML = h;
+    mSpan.innerHTML = m;
+    sSpan.innerHTML = s;
+  };
+  date.classList.add("date");
 }
+
+// 4. Дан массив с объектами, где каждый объект
+// описывает книгу: артикул, автор, название, описание.
+// Сформировать функцию, которой передаётся массив
+// книг, и которая создаст и внесёт все
+// необходимые html элементы, стили, и содержание
+// для отображения всей информации о книгах в виду таблицы.
